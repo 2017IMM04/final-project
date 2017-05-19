@@ -1,13 +1,13 @@
 classdef solid
    properties
    %shorthand numbers for site properties
-   %site_p = -1;
-   %site_n = 1;
+   %site_p = 1;
+   %site_n = -1;
    %dimensions of the solid
    N_x;
    N_y;
    N_z;
-   %matrix to save the solid site data -1 for hole, 1 for electron conductor
+   %matrix to save the solid site data 1 for hole, -1 for electron conductor
    data_matrix;
    
    end
@@ -23,9 +23,9 @@ classdef solid
                 for y = 1:val_2
                     for z = 1:val_3
                         if rem((x+y+z),2) == 1 % is odd
-                            obj.data_matrix(x,y,z) = 1; % n type
+                            obj.data_matrix(x,y,z) = -1; % n type
                         else
-                            obj.data_matrix(x,y,z) = -1; % p type
+                            obj.data_matrix(x,y,z) = 1; % p type
                         end
                     end
                 end

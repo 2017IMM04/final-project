@@ -1,13 +1,13 @@
 classdef solid_rand
    properties
    %shorthand numbers for site properties
-   %site_p = -1;
-   %site_n = 1;
+   %site_p = 1;
+   %site_n = -1;
    %dimensions of the solid
    N_x;
    N_y;
    N_z;
-   %matrix to save the solid site data -1 for hole, 1 for electron conductor
+   %matrix to save the solid site data 1 for hole, -1 for electron conductor
    data_matrix;
    
    end
@@ -24,9 +24,9 @@ classdef solid_rand
                     for z = 1:val_3
                         temp = rand();
                         if temp > 0.5
-                            obj.data_matrix(x,y,z) = 1; % n type
+                            obj.data_matrix(x,y,z) = -1; % n type
                         else
-                            obj.data_matrix(x,y,z) = -1; % p type
+                            obj.data_matrix(x,y,z) = 1; % p type
                         end
                     end
                 end
