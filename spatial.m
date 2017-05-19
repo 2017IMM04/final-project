@@ -89,7 +89,7 @@ classdef spatial < handle
        %A.data_at(2,x,y,z,0,0,-1) etc.
        function out = data_at(obj, num, start_x, start_y, start_z, val_1, val_2, val_3)
             if num == 1
-                out = obj.particle_matrix(mod(start_x+val_1-1, obj.N_x)+1, mod(start_y+val_2-1, obj.N_y)+1, mod(start_z+val_3-1, obj.N_z)+1);
+                out = obj.particle_type_matrix(mod(start_x+val_1-1, obj.N_x)+1, mod(start_y+val_2-1, obj.N_y)+1, mod(start_z+val_3-1, obj.N_z)+1);
             elseif num == 2
                 out = obj.potential_matrix(mod(start_x+val_1-1, obj.N_x)+1, mod(start_y+val_2-1, obj.N_y)+1, mod(start_z+val_3-1, obj.N_z)+1);
             else
@@ -103,7 +103,7 @@ classdef spatial < handle
        %similar to data_at, but write only, no return value
        function modify_data_at(obj, input, num, start_x, start_y, start_z, val_1, val_2, val_3)
            if num == 1
-               obj.particle_matrix(mod(start_x+val_1-1, obj.N_x)+1, mod(start_y+val_2-1, obj.N_y)+1, mod(start_z+val_3-1, obj.N_z)+1)=input;
+               obj.particle_type_matrix(mod(start_x+val_1-1, obj.N_x)+1, mod(start_y+val_2-1, obj.N_y)+1, mod(start_z+val_3-1, obj.N_z)+1)=input;
            elseif num == 2
                obj.potential_matrix(mod(start_x+val_1-1, obj.N_x)+1, mod(start_y+val_2-1, obj.N_y)+1, mod(start_z+val_3-1, obj.N_z)+1)=input;
            else
